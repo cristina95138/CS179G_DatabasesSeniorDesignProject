@@ -4,7 +4,7 @@
 
 ### /server
 
-1. nodeon index.js
+1. nodemon index.js
 
 ### /client
 
