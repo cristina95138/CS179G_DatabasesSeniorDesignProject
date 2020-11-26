@@ -2,10 +2,10 @@
 
 ## Running Instructions
 
-### /server
+### youtube-app/server
 
 1. nodemon index.js
 
-### /client
+### youtube-app/client
 
 1. yarn start
