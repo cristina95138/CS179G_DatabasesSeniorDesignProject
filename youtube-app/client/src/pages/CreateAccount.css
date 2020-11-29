@@ -1,9 +1,9 @@
 @media all and (min-width: 480px) {
-    .Login {
+    .CreateAccount {
         padding: 60px 0;
     }
 
-    .Login form {
+    .CreateAccount form {
         margin: 0 auto;
         max-width: 320px;
     }

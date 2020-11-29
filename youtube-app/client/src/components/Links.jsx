@@ -30,7 +30,7 @@ class Links extends Component {
                         </Item>
                         <Item>
                             <Link to="/CreateAccount" className="nav-link">
-                                CreateAccount
+                                Create Account
                             </Link>
                         </Item>
                         <Item>
