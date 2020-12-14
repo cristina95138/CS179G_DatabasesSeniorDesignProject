@@ -65,6 +65,27 @@ getUserById = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getUserByUserId = async (req, res) => {
+    await User.findOne({ userid: req.body.userid }, (err, user) => {
+        return res
+            .json({ success: false, error: `init` })
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+
+        if (!user) {
+            return res
+                .status(404)
+                .json({ success: false, error: `User not found` })
+        } else if (req.body.password != user.password) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Incorrect password` })
+        }
+        return res.status(200).json({ success: true, data: user })
+    }).catch(err => console.log(err))
+}
+
 getUsers = async (req, res) => {
     await User.find({}, (err, users) => {
         if (err) {
@@ -136,4 +157,5 @@ module.exports = {
     getUsers,
     getRecommend,
     setPref,
+    getUserByUserId,
 }

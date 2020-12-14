@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom'
 
 import { NavBar } from '../components'
-import { MoviesList, MoviesInsert, MoviesUpdate, Login, CreateAccount } from '../pages'
+import { MoviesList, MoviesInsert, MoviesUpdate, Login, CreateAccount, Settings, Channel, Recommendations, Trending } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -11,8 +11,8 @@ function App()  {
         <Router>
             <NavBar />
             <Switch>
-                <Route path="/Login" exact component={Login} exact/>
-                <Route path="/CreateAccount" exact component={CreateAccount} exact/>
+                <Route path="/users/Login" exact component={Login} exact/>
+                <Route path="/users/CreateAccount" exact component={CreateAccount} exact/>
                 <Route path="/movies/list" exact component={MoviesList} />
                 <Route path="/movies/create" exact component={MoviesInsert} />
                 <Route
@@ -20,6 +20,10 @@ function App()  {
                     exact
                     component={MoviesUpdate}
                 />
+                <Route path="/users/Settings" exact component={Settings} />
+                <Route path="/users/Channel" exact component={Channel} />
+                <Route path="/users/Recommendations" exact component={Recommendations} />
+                <Route path="/movies/Trending" exact component={Trending} />
             </Switch>
         </Router>
     )

@@ -55,6 +55,16 @@ updateMovie = async (req, res) => {
         movie.rating = body.rating
         movie.description = body.description
         movie.keywords = body.keywords
+        movie.channel = body.channel
+        movie.channelid = body.channelid
+        movie.likes = body.likes
+        movie.dislikes = body.dislikes
+        movie.views = body.views
+        movie.comments = body.comments
+        movie.channelid = body.channelid
+        movie.sharelink = body.sharelink
+        movie.shares = body.shares
+
 
         movie
             .save()

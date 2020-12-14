@@ -1,44 +1,79 @@
-import React, { useState } from "react";
+import React, {Component, useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./CreateAccount.css";
+import api from "../api";
 
-export default function CreateAccount() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+class CreateAccount extends Component {
+    constructor(props) {
+        super(props)
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
+        this.state = {
+            userid: '',
+            pw: '',
+            channelid: '',
+        }
     }
 
-    function handleSubmit(event) {
+    handleSubmit(event) {
         event.preventDefault();
     }
 
-    return (
-        <div className="CreateAccount">
-            <Form onSubmit={handleSubmit}>
-                <Form.Group size="lg" controlId="email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </Form.Group>
-                <Form.Group size="lg" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </Form.Group>
-                <Button block size="lg" type="submit" disabled={!validateForm()}>
-                    Create Account
-                </Button>
-            </Form>
-        </div>
-    );
+    handleChangeInputUserID = async event => {
+        const userid = event.target.value
+        this.setState({ userid })
+
+        const channelid = event.target.value
+        this.setState({ channelid })
+    }
+
+    handleChangeInputPassword = async event => {
+        const pw = event.target.value
+        this.setState({ pw })
+    }
+
+    handleIncludeUser = async () => {
+        const {userid, pw, channelid} = this.state
+        const payload = {userid, pw, channelid}
+
+        await api.insertUser(payload).then(res => {
+            window.alert(`User inserted successfully`)
+            this.setState({
+                userid: '',
+                pw: '',
+            })
+        })
+    }
+
+    render() {
+        const { userid, pw } = this.state
+        return (
+            <div>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group size="lg" controlId="email">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            type="text"
+                            value={userid}
+                            onChange={this.handleChangeInputUserID}
+                        />
+                    </Form.Group>
+                    <Form.Group size="lg" controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            value={pw}
+                            onChange={this.handleChangeInputPassword}
+                        />
+                    </Form.Group>
+                    <Button onClick={this.handleIncludeUser} block size="lg" type="submit">
+                        Create Account
+                    </Button>
+                </Form>
+            </div>
+        )
+    }
 }
+
+export default CreateAccount

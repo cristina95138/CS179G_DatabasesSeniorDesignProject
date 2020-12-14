@@ -38,7 +38,7 @@ class DeleteMovie extends Component {
 
         if (
             window.confirm(
-                `Do tou want to delete the movie ${this.props.id} permanently?`,
+                `Do you want to delete the movie ${this.props.id} permanently?`,
             )
         ) {
             api.deleteMovieById(this.props.id)
@@ -83,7 +83,7 @@ class MoviesList extends Component {
                 filterable: true,
             },
             {
-                Header: 'Name',
+                Header: 'Title',
                 accessor: 'name',
                 filterable: true,
             },
@@ -93,8 +93,64 @@ class MoviesList extends Component {
                 filterable: true,
             },
             {
+                Header: 'Description',
+                accessor: 'description',
+                filterable: true,
+            },
+            {
+                Header: 'Keywords',
+                accessor: 'keywords',
+                filterable: true,
+            },
+            {
+                Header: 'Channel',
+                accessor: 'channel',
+                filterable: true,
+            },
+            {
+                Header: 'Channel ID',
+                accessor: 'channelid',
+                filterable: true,
+            },
+            {
+                Header: 'Likes',
+                accessor: 'likes',
+                filterable: true,
+            },
+            {
+                Header: 'Dislikes',
+                accessor: 'dislikes',
+                filterable: true,
+            },
+            {
+                Header: 'Views',
+                accessor: 'views',
+                filterable: true,
+            },
+            {
+                Header: 'Comments',
+                accessor: 'comments',
+                filterable: true,
+            },
+            {
+                Header: 'Share Link',
+                accessor: 'sharelink',
+                filterable: true,
+            },
+            {
+                Header: 'Shares',
+                accessor: 'shares',
+                filterable: true,
+            },
+            {
+                Header: 'Video Link',
+                accessor: 'videolink',
+                filterable: true,
+            },
+            {
                 Header: 'Time',
                 accessor: 'time',
+                filterable: true,
                 Cell: props => <span>{props.value.join(' / ')}</span>,
             },
             {

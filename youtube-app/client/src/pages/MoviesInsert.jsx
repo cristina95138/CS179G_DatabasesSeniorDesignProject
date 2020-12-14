@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import api from '../api'
+import Dropzone from 'react-dropzone';
+//import { useSelector } from "react-redux";
 
 import styled from 'styled-components'
 
@@ -43,6 +45,16 @@ class MoviesInsert extends Component {
             name: '',
             rating: '',
             time: '',
+            description: '',
+            keywords: '',
+            channel: '',
+            channelid: '',
+            likes: 0,
+            dislikes: 0,
+            views: 0,
+            comments: '',
+            sharelink: '',
+            videolink: '',
         }
     }
 
@@ -59,15 +71,64 @@ class MoviesInsert extends Component {
         this.setState({ rating })
     }
 
+    handleChangeInputDescription = async event => {
+        const description = event.target.value
+        this.setState({ description })
+    }
+
+    handleChangeInputKeywords = async event => {
+        const keywords = event.target.value
+        this.setState({ keywords })
+    }
+
     handleChangeInputTime = async event => {
         const time = event.target.value
         this.setState({ time })
     }
 
+    // onDrop = (files) => {
+    //
+    //     let formData = new FormData();
+    //     const config = {
+    //         header: { 'content-type': 'multipart/form-data' }
+    //     }
+    //     console.log(files)
+    //     formData.append("file", files[0])
+    //
+    //     axios.post('/api/video/uploadfiles', formData, config)
+    //         .then(response => {
+    //             if (response.data.success) {
+    //
+    //                 let variable = {
+    //                     filePath: response.data.filePath,
+    //                     fileName: response.data.fileName
+    //                 }
+    //                 setFilePath(response.data.filePath)
+    //
+    //                 //gerenate thumbnail with this filepath !
+    //
+    //                 axios.post('/api/video/thumbnail', variable)
+    //                     .then(response => {
+    //                         if (response.data.success) {
+    //                             setDuration(response.data.fileDuration)
+    //                             setThumbnail(response.data.thumbsFilePath)
+    //                         } else {
+    //                             alert('Failed to make the thumbnails');
+    //                         }
+    //                     })
+    //
+    //
+    //             } else {
+    //                 alert('failed to save the video in server')
+    //             }
+    //         })
+    //
+    // }
+
     handleIncludeMovie = async () => {
-        const { name, rating, time } = this.state
+        const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
         const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const payload = { name, rating, time: arrayTime, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink }
 
         await api.insertMovie(payload).then(res => {
             window.alert(`Movie inserted successfully`)
@@ -75,43 +136,67 @@ class MoviesInsert extends Component {
                 name: '',
                 rating: '',
                 time: '',
+                description: '',
+                keywords: '',
+                channel: '',
+                channelid: '',
+                likes: 0,
+                dislikes: 0,
+                views: 0,
+                comments: '',
+                sharelink: '',
+                videolink: '',
             })
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
         return (
             <Wrapper>
-                <Title>Create Movie</Title>
+                <Title>Upload Video</Title>
 
-                <Label>Name: </Label>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Dropzone
+                        //onDrop={onDrop}
+                        multiple={false}
+                        maxSize={800000000}>
+                        {({ getRootProps, getInputProps }) => (
+                            <div style={{ width: '300px', height: '240px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                 {...getRootProps()}
+                            >
+                                <input {...getInputProps()} />
+
+                            </div>
+                        )}
+                    </Dropzone>
+
+                    }
+                </div>
+
+
+                <Label>Title: </Label>
                 <InputText
                     type="text"
                     value={name}
                     onChange={this.handleChangeInputName}
                 />
 
-                <Label>Rating: </Label>
-                <InputText
-                    type="number"
-                    step="0.1"
-                    lang="en-US"
-                    min="0"
-                    max="10"
-                    pattern="[0-9]+([,\.][0-9]+)?"
-                    value={rating}
-                    onChange={this.handleChangeInputRating}
-                />
-
-                <Label>Time: </Label>
+                <Label>Description: </Label>
                 <InputText
                     type="text"
-                    value={time}
-                    onChange={this.handleChangeInputTime}
+                    value={description}
+                    onChange={this.handleChangeInputDescription}
                 />
 
-                <Button onClick={this.handleIncludeMovie}>Add Movie</Button>
+                <Label>Keywords: </Label>
+                <InputText
+                    type="text"
+                    value={keywords}
+                    onChange={this.handleChangeInputKeywords}
+                />
+
+                <Button onClick={this.handleIncludeMovie}>Upload</Button>
                 <CancelButton href={'/movies/list'}>Cancel</CancelButton>
             </Wrapper>
         )
