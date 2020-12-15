@@ -20,33 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efe322c5-d2ef-4ba0-a83b-ea3dd77cfdf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Channel.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Recommendations.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Settings.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Trending.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/TrendingVideos.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Video.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/api/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/src/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/app/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/src/components/Links.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/components/Links.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/components/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/components/Logo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/Channel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Channel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/CreateAccount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/CreateAccount.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/MoviesInsert.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/MoviesInsert.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/MoviesList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/MoviesList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/Recommendations.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Recommendations.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/Settings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/Settings.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/Trending.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/TrendingChannels.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube-app/client/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/client/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/controllers/channel-ctrl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/controllers/movie-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/controllers/movie-ctrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/controllers/user-ctrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/controllers/user-ctrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/db/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/models/channel-model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/models/movie-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/models/movie-model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/models/user-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/models/user-model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/node_modules/body-parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/routes/channel-router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube-app/server/routes/user-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/routes/user-router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube-app/server/routes/movie-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube-app/server/routes/movie-router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +81,7 @@
       <workItem from="1607653012096" duration="187000" />
       <workItem from="1607840287895" duration="5182000" />
       <workItem from="1607910905951" duration="2654000" />
-      <workItem from="1607935176237" duration="1790000" />
+      <workItem from="1607935176237" duration="9769000" />
     </task>
     <servers />
   </component>
@@ -112,14 +101,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="360" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607924306639">
+    <state x="360" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607944808919">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="360" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607924306639" />
-    <state x="-1158" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607925878084">
-      <screen x="-1792" y="0" width="1792" height="1120" />
+    <state x="360" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607944808919" />
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607946783417">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="-1158" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1792.0.1792.1120/0.0.1288.946@-1792.0.1792.1120" timestamp="1607925878084" />
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607946783417" />
     <state x="697" y="478" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607935826754">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

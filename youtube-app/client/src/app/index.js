@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom'
 
 import { NavBar } from '../components'
-import { MoviesList, MoviesInsert, MoviesUpdate, Login, CreateAccount, Settings, Channel, Recommendations, Trending } from '../pages'
+import { MoviesList, MoviesInsert, MoviesUpdate, Login, CreateAccount, Settings, Channel, Recommendations, TrendingChannels, TrendingVideos } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -23,7 +23,8 @@ function App()  {
                 <Route path="/users/Settings" exact component={Settings} />
                 <Route path="/users/Channel" exact component={Channel} />
                 <Route path="/users/Recommendations" exact component={Recommendations} />
-                <Route path="/movies/Trending" exact component={Trending} />
+                <Route path="/movies/TrendingChannels" exact component={TrendingChannels} />
+                <Route path="/movies/TrendingVideos" exact component={TrendingVideos} />
             </Switch>
         </Router>
     )

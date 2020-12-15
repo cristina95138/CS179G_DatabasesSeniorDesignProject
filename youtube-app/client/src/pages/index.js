@@ -6,6 +6,8 @@ import CreateAccount from './CreateAccount'
 import Settings from './Settings'
 import Channel from './Channel'
 import Recommendations from './Recommendations'
-import Trending from './Trending'
+import TrendingChannels from './TrendingChannels'
+import TrendingVideos from './TrendingVideos'
 
-export { MoviesList, MoviesInsert, MoviesUpdate, Login, CreateAccount, Settings, Channel, Recommendations, Trending }
+
+export { MoviesList, MoviesInsert, MoviesUpdate, Login, CreateAccount, Settings, Channel, Recommendations, TrendingChannels, TrendingVideos }

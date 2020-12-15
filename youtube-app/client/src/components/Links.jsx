@@ -34,18 +34,18 @@ class Links extends Component {
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/users/Account" className="nav-link">
-                                Settings
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link to="/users/Account" className="nav-link">
+                            <Link to="/users/Channel" className="nav-link">
                                 Channel
                             </Link>
                         </Item>
                         <Item>
+                            <Link to="/users/Settings" className="nav-link">
+                                Settings
+                            </Link>
+                        </Item>
+                        <Item>
                             <Link to="/movies/create" className="nav-link">
-                                Upload Video
+                                Upload
                             </Link>
                         </Item>
                         <Item>
@@ -59,8 +59,18 @@ class Links extends Component {
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/movies/trending" className="nav-link">
-                                Trending
+                            <Link to="/movies/trendingvideos" className="nav-link">
+                                Trending Videos
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/movies/trendingchannels" className="nav-link">
+                                Trending Channels
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/" className="nav-link">
+                                Logout
                             </Link>
                         </Item>
                     </List>

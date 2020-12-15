@@ -3,6 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./CreateAccount.css";
 import api from "../api";
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 class CreateAccount extends Component {
     constructor(props) {
@@ -11,7 +13,7 @@ class CreateAccount extends Component {
         this.state = {
             userid: '',
             pw: '',
-            channelid: '',
+            preferences: '',
         }
     }
 
@@ -22,9 +24,6 @@ class CreateAccount extends Component {
     handleChangeInputUserID = async event => {
         const userid = event.target.value
         this.setState({ userid })
-
-        const channelid = event.target.value
-        this.setState({ channelid })
     }
 
     handleChangeInputPassword = async event => {
@@ -32,21 +31,27 @@ class CreateAccount extends Component {
         this.setState({ pw })
     }
 
+    handleChangePreferences = async event => {
+        const preferences = event.target.value
+        this.setState({ preferences })
+    }
+
     handleIncludeUser = async () => {
-        const {userid, pw, channelid} = this.state
-        const payload = {userid, pw, channelid}
+        const {userid, pw, preferences} = this.state
+        const payload = {userid, pw, preferences}
 
         await api.insertUser(payload).then(res => {
             window.alert(`User inserted successfully`)
             this.setState({
                 userid: '',
                 pw: '',
+                preferences: '',
             })
         })
     }
 
     render() {
-        const { userid, pw } = this.state
+        const { userid, pw, preferences } = this.state
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
@@ -65,6 +70,15 @@ class CreateAccount extends Component {
                             type="password"
                             value={pw}
                             onChange={this.handleChangeInputPassword}
+                        />
+                    </Form.Group>
+                    <Form.Group size="lg" controlId="preferences">
+                        <Form.Label>Preferences</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            type="text"
+                            value={preferences}
+                            onChange={this.handleChangePreferences}
                         />
                     </Form.Group>
                     <Button onClick={this.handleIncludeUser} block size="lg" type="submit">

@@ -55,6 +55,9 @@ class MoviesInsert extends Component {
             comments: '',
             sharelink: '',
             videolink: '',
+            FilePath: '',
+            Duration: '',
+            Thumbnail: '',
         }
     }
 
@@ -86,65 +89,62 @@ class MoviesInsert extends Component {
         this.setState({ time })
     }
 
-    // onDrop = (files) => {
-    //
-    //     let formData = new FormData();
-    //     const config = {
-    //         header: { 'content-type': 'multipart/form-data' }
-    //     }
-    //     console.log(files)
-    //     formData.append("file", files[0])
-    //
-    //     axios.post('/api/video/uploadfiles', formData, config)
-    //         .then(response => {
-    //             if (response.data.success) {
-    //
-    //                 let variable = {
-    //                     filePath: response.data.filePath,
-    //                     fileName: response.data.fileName
-    //                 }
-    //                 setFilePath(response.data.filePath)
-    //
-    //                 //gerenate thumbnail with this filepath !
-    //
-    //                 axios.post('/api/video/thumbnail', variable)
-    //                     .then(response => {
-    //                         if (response.data.success) {
-    //                             setDuration(response.data.fileDuration)
-    //                             setThumbnail(response.data.thumbsFilePath)
-    //                         } else {
-    //                             alert('Failed to make the thumbnails');
-    //                         }
-    //                     })
-    //
-    //
-    //             } else {
-    //                 alert('failed to save the video in server')
-    //             }
-    //         })
-    //
-    // }
+    handleChangeInputVideo = async event => {
+        const video = event.target.value
+        this.setState({ video })
+
+     //    let formData = new FormData();
+     //    const config = {
+     //        header: { 'content-type': 'multipart/form-data' }
+     //    }
+     // console.log(event)
+     //    formData.append("file", event[0])
+    }
+
+    onDrop = (files) => {
+
+        let formData = new FormData();
+        const config = {
+            header: { 'content-type': 'multipart/form-data' }
+        }
+        console.log(files)
+        formData.append("file", files[0])
+
+        let variable = {
+            filePath: config.data.filePath,
+            fileName: config.data.fileName
+        }
+        this.setState({FilePath: config.data.filePath})
+
+        //gerenate thumbnail with this filepath !
+        //this.setState( {Duration: config.data.fileDuration})
+        //this.setState({Thumbnail: config.data.thumbsFilePath})
+    }
 
     handleIncludeMovie = async () => {
-        const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink }
+        //const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
+        //const arrayTime = time.split('/')
+        //const payload = { name, rating, time: arrayTime, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink }
+
+        const { name, description, keywords, likes, dislikes, views, videolink } = this.state
+        const payload = { name, description, keywords, likes, dislikes, views, videolink }
+
 
         await api.insertMovie(payload).then(res => {
             window.alert(`Movie inserted successfully`)
             this.setState({
                 name: '',
-                rating: '',
-                time: '',
+                //rating: '',
+                //time: '',
                 description: '',
                 keywords: '',
-                channel: '',
-                channelid: '',
+                //channel: '',
+                //channelid: '',
                 likes: 0,
                 dislikes: 0,
                 views: 0,
-                comments: '',
-                sharelink: '',
+                //comments: '',
+                //sharelink: '',
                 videolink: '',
             })
         })
@@ -158,14 +158,17 @@ class MoviesInsert extends Component {
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Dropzone
-                        //onDrop={onDrop}
+                        onDrop={this.onDrop}
                         multiple={false}
                         maxSize={800000000}>
                         {({ getRootProps, getInputProps }) => (
                             <div style={{ width: '300px', height: '240px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                                  {...getRootProps()}
                             >
-                                <input {...getInputProps()} />
+                                Upload Video File Here
+                                <input {...getInputProps()}
+                                       value={videolink}
+                                />
 
                             </div>
                         )}
