@@ -3,7 +3,7 @@ import ReactTable from "react-table-6";
 import api from '../api'
 
 import styled from 'styled-components'
-  
+
 import "react-table-6/react-table.css"
 
 const Wrapper = styled.div`
@@ -28,11 +28,30 @@ class UpdateMovie extends Component {
     }
 
     render() {
-        return <Update onClick={this.updateUser}>View</Update>
+        return <Update onClick={this.updateUser}>Update</Update>
     }
 }
 
-class MoviesList extends Component {
+class DeleteMovie extends Component {
+    deleteUser = event => {
+        event.preventDefault()
+
+        if (
+            window.confirm(
+                `Do you want to delete the movie ${this.props.id} permanently?`,
+            )
+        ) {
+            api.deleteMovieById(this.props.id)
+            window.location.reload()
+        }
+    }
+
+    render() {
+        return <Delete onClick={this.deleteUser}>Delete</Delete>
+    }
+}
+
+class Channel extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -140,6 +159,17 @@ class MoviesList extends Component {
                 Cell: function(props) {
                     return (
                         <span>
+                            <DeleteMovie id={props.original._id} />
+                        </span>
+                    )
+                },
+            },
+            {
+                Header: '',
+                accessor: '',
+                Cell: function(props) {
+                    return (
+                        <span>
                             <UpdateMovie id={props.original._id} />
                         </span>
                     )
@@ -169,4 +199,4 @@ class MoviesList extends Component {
     }
 }
 
-export default MoviesList
+export default Channel

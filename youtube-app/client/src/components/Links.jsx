@@ -24,23 +24,53 @@ class Links extends Component {
                 <Collapse>
                     <List>
                         <Item>
-                            <Link to="/Login" className="nav-link">
+                            <Link to="/users/Login" className="nav-link">
                                 Login
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/CreateAccount" className="nav-link">
-                                Create Account
+                            <Link to="/users/CreateAccount" className="nav-link">
+                                Register
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/movies/list" className="nav-link">
-                                List Movies
+                            <Link to="/users/Channel" className="nav-link">
+                                Channel
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/users/Settings" className="nav-link">
+                                Settings
                             </Link>
                         </Item>
                         <Item>
                             <Link to="/movies/create" className="nav-link">
-                                Create Movie
+                                Upload
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/movies/list" className="nav-link">
+                                Search
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/users/recommendations" className="nav-link">
+                                Recommendations
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/movies/trendingvideos" className="nav-link">
+                                Trending Videos
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/movies/trendingchannels" className="nav-link">
+                                Trending Channels
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/" className="nav-link">
+                                Logout
                             </Link>
                         </Item>
                     </List>

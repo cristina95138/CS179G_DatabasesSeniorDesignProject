@@ -37,7 +37,7 @@ const CancelButton = styled.a.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-class MoviesInsert extends Component {
+class Settings extends Component {
     constructor(props) {
         super(props)
 
@@ -93,12 +93,12 @@ class MoviesInsert extends Component {
         const video = event.target.value
         this.setState({ video })
 
-     //    let formData = new FormData();
-     //    const config = {
-     //        header: { 'content-type': 'multipart/form-data' }
-     //    }
-     // console.log(event)
-     //    formData.append("file", event[0])
+        //    let formData = new FormData();
+        //    const config = {
+        //        header: { 'content-type': 'multipart/form-data' }
+        //    }
+        // console.log(event)
+        //    formData.append("file", event[0])
     }
 
     onDrop = (files) => {
@@ -154,29 +154,7 @@ class MoviesInsert extends Component {
         const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
         return (
             <Wrapper>
-                <Title>Upload Video</Title>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Dropzone
-                        onDrop={this.onDrop}
-                        multiple={false}
-                        maxSize={800000000}>
-                        {({ getRootProps, getInputProps }) => (
-                            <div style={{ width: '300px', height: '240px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                                 {...getRootProps()}
-                            >
-                                Upload Video File Here
-                                <input {...getInputProps()}
-                                       value={videolink}
-                                />
-
-                            </div>
-                        )}
-                    </Dropzone>
-
-                    }
-                </div>
-
+                <Title>Settings</Title>
 
                 <Label>Title: </Label>
                 <InputText
@@ -206,4 +184,4 @@ class MoviesInsert extends Component {
     }
 }
 
-export default MoviesInsert
+export default Settings
