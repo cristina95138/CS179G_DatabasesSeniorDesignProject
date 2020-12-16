@@ -108,46 +108,6 @@ class Channel extends Component {
                 filterable: true,
             },
             {
-                Header: 'Channel ID',
-                accessor: 'channelid',
-                filterable: true,
-            },
-            {
-                Header: 'Likes',
-                accessor: 'likes',
-                filterable: true,
-            },
-            {
-                Header: 'Dislikes',
-                accessor: 'dislikes',
-                filterable: true,
-            },
-            {
-                Header: 'Views',
-                accessor: 'views',
-                filterable: true,
-            },
-            {
-                Header: 'Comments',
-                accessor: 'comments',
-                filterable: true,
-            },
-            {
-                Header: 'Share Link',
-                accessor: 'sharelink',
-                filterable: true,
-            },
-            {
-                Header: 'Shares',
-                accessor: 'shares',
-                filterable: true,
-            },
-            {
-                Header: 'Video Link',
-                accessor: 'videolink',
-                filterable: true,
-            },
-            {
                 Header: 'Time',
                 accessor: 'time',
                 filterable: true,

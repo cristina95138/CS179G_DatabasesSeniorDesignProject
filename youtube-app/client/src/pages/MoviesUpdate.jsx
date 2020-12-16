@@ -42,8 +42,21 @@ class MoviesUpdate extends Component {
         this.state = {
             id: this.props.match.params.id,
             name: '',
-            rating: '',
-            time: '',
+            //rating: '',
+            //time: '',
+            description: '',
+            keywords: '',
+            // channel: '',
+            // channelid: '',
+            // likes: 0,
+            // dislikes: 0,
+            // views: 0,
+            // comments: '',
+            // sharelink: '',
+            // videolink: '',
+            // FilePath: '',
+            // Duration: '',
+            // Thumbnail: '',
         }
     }
 
@@ -60,15 +73,31 @@ class MoviesUpdate extends Component {
         this.setState({ rating })
     }
 
+    handleChangeInputDescription = async event => {
+        const description = event.target.value
+        this.setState({ description })
+    }
+
+
+    handleChangeInputKeywords = async event => {
+        const keywords = event.target.value
+        this.setState({ keywords })
+    }
+
+    handleChangeInputChannel = async event => {
+        const channel = event.target.value
+        this.setState({ channel })
+    }
+
     handleChangeInputTime = async event => {
         const time = event.target.value
         this.setState({ time })
     }
 
     handleUpdateMovie = async () => {
-        const { id, name, rating, time } = this.state
+        const { id, name, rating, time, description, keywords, channel } = this.state
         const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const payload = { name, rating, time: arrayTime, description, keywords, channel }
 
         await api.updateMovieById(id, payload).then(res => {
             window.alert(`Movie updated successfully`)
@@ -76,6 +105,16 @@ class MoviesUpdate extends Component {
                 name: '',
                 rating: '',
                 time: '',
+                description: '',
+                keywords: '',
+                channel: '',
+                //channelid: '',
+                //likes: 0,
+                //dislikes: 0,
+                //views: 0,
+                //comments: '',
+                //sharelink: '',
+                //videolink: '',
             })
         })
     }
@@ -87,33 +126,52 @@ class MoviesUpdate extends Component {
         this.setState({
             name: movie.data.data.name,
             rating: movie.data.data.rating,
+            description: movie.data.data.description,
+            keywords: movie.data.data.keywords,
+            channel: movie.data.data.channel,
             time: movie.data.data.time.join('/'),
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, description, keywords, rating, channel, time } = this.state
         return (
             <Wrapper>
-                <Title>Create Movie</Title>
+                <Title>Update Video</Title>
 
-                <Label>Name: </Label>
+                <Label>Title: </Label>
                 <InputText
                     type="text"
                     value={name}
                     onChange={this.handleChangeInputName}
                 />
 
+                <Label>Description: </Label>
+                <InputText
+                    type="text"
+                    value={description}
+                    onChange={this.handleChangeInputDescription}
+                />
+
+                <Label>Keywords: </Label>
+                <InputText
+                    type="text"
+                    value={keywords}
+                    onChange={this.handleChangeInputKeywords}
+                />
+
                 <Label>Rating: </Label>
                 <InputText
-                    type="number"
-                    step="0.1"
-                    lang="en-US"
-                    min="0"
-                    max="10"
-                    pattern="[0-9]+([,\.][0-9]+)?"
+                    type="text"
                     value={rating}
                     onChange={this.handleChangeInputRating}
+                />
+
+                <Label>Channel: </Label>
+                <InputText
+                    type="text"
+                    value={channel}
+                    onChange={this.handleChangeInputChannel}
                 />
 
                 <Label>Time: </Label>
@@ -123,7 +181,7 @@ class MoviesUpdate extends Component {
                     onChange={this.handleChangeInputTime}
                 />
 
-                <Button onClick={this.handleUpdateMovie}>Update Movie</Button>
+                <Button onClick={this.handleUpdateMovie}>Update Video</Button>
                 <CancelButton href={'/movies/list'}>Cancel</CancelButton>
             </Wrapper>
         )

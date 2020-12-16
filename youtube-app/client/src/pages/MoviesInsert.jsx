@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import api from '../api'
-import Dropzone from 'react-dropzone';
 //import { useSelector } from "react-redux";
 
 import styled from 'styled-components'
@@ -43,21 +42,21 @@ class MoviesInsert extends Component {
 
         this.state = {
             name: '',
-            rating: '',
-            time: '',
+            //rating: '',
+            //time: '',
             description: '',
             keywords: '',
-            channel: '',
-            channelid: '',
-            likes: 0,
-            dislikes: 0,
-            views: 0,
-            comments: '',
-            sharelink: '',
-            videolink: '',
-            FilePath: '',
-            Duration: '',
-            Thumbnail: '',
+            // channel: '',
+            // channelid: '',
+            // likes: 0,
+            // dislikes: 0,
+            // views: 0,
+            // comments: '',
+            // sharelink: '',
+            // videolink: '',
+            // FilePath: '',
+            // Duration: '',
+            // Thumbnail: '',
         }
     }
 
@@ -79,6 +78,7 @@ class MoviesInsert extends Component {
         this.setState({ description })
     }
 
+
     handleChangeInputKeywords = async event => {
         const keywords = event.target.value
         this.setState({ keywords })
@@ -89,94 +89,40 @@ class MoviesInsert extends Component {
         this.setState({ time })
     }
 
-    handleChangeInputVideo = async event => {
-        const video = event.target.value
-        this.setState({ video })
-
-     //    let formData = new FormData();
-     //    const config = {
-     //        header: { 'content-type': 'multipart/form-data' }
-     //    }
-     // console.log(event)
-     //    formData.append("file", event[0])
-    }
-
-    onDrop = (files) => {
-
-        let formData = new FormData();
-        const config = {
-            header: { 'content-type': 'multipart/form-data' }
-        }
-        console.log(files)
-        formData.append("file", files[0])
-
-        let variable = {
-            filePath: config.data.filePath,
-            fileName: config.data.fileName
-        }
-        this.setState({FilePath: config.data.filePath})
-
-        //gerenate thumbnail with this filepath !
-        //this.setState( {Duration: config.data.fileDuration})
-        //this.setState({Thumbnail: config.data.thumbsFilePath})
-    }
-
     handleIncludeMovie = async () => {
         //const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
         //const arrayTime = time.split('/')
         //const payload = { name, rating, time: arrayTime, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink }
 
-        const { name, description, keywords, likes, dislikes, views, videolink } = this.state
-        const payload = { name, description, keywords, likes, dislikes, views, videolink }
-
+        const { name, description, keywords, rating, channel, time } = this.state
+        const arrayTime = time.split('/')
+        const payload = { name, description, keywords, rating, channel, time: arrayTime }
 
         await api.insertMovie(payload).then(res => {
             window.alert(`Movie inserted successfully`)
             this.setState({
                 name: '',
-                //rating: '',
-                //time: '',
+                rating: '',
+                time: '',
                 description: '',
                 keywords: '',
-                //channel: '',
+                channel: '',
                 //channelid: '',
-                likes: 0,
-                dislikes: 0,
-                views: 0,
+                //likes: 0,
+                //dislikes: 0,
+                //views: 0,
                 //comments: '',
                 //sharelink: '',
-                videolink: '',
+                //videolink: '',
             })
         })
     }
 
     render() {
-        const { name, rating, time, description, keywords, channel, channelid, likes, dislikes, views, comments, sharelink, videolink } = this.state
+        const { name, description, keywords, rating, channel, time } = this.state
         return (
             <Wrapper>
                 <Title>Upload Video</Title>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Dropzone
-                        onDrop={this.onDrop}
-                        multiple={false}
-                        maxSize={800000000}>
-                        {({ getRootProps, getInputProps }) => (
-                            <div style={{ width: '300px', height: '240px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                                 {...getRootProps()}
-                            >
-                                Upload Video File Here
-                                <input {...getInputProps()}
-                                       value={videolink}
-                                />
-
-                            </div>
-                        )}
-                    </Dropzone>
-
-                    }
-                </div>
-
 
                 <Label>Title: </Label>
                 <InputText
@@ -197,6 +143,27 @@ class MoviesInsert extends Component {
                     type="text"
                     value={keywords}
                     onChange={this.handleChangeInputKeywords}
+                />
+
+                <Label>Rating: </Label>
+                <InputText
+                    type="text"
+                    value={rating}
+                    onChange={this.handleChangeInputRating}
+                />
+
+                <Label>Channel: </Label>
+                <InputText
+                    type="text"
+                    value={channel}
+                    onChange={this.handleChangeInputChannel}
+                />
+
+                <Label>Time: </Label>
+                <InputText
+                    type="text"
+                    value={time}
+                    onChange={this.handleChangeInputTime}
                 />
 
                 <Button onClick={this.handleIncludeMovie}>Upload</Button>

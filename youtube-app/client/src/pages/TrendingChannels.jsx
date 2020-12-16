@@ -87,16 +87,6 @@ class Recommendations extends Component {
                 accessor: 'channel',
                 filterable: true,
             },
-            {
-                Header: 'Channel ID',
-                accessor: 'channelid',
-                filterable: true,
-            },
-            {
-                Header: 'Views',
-                accessor: 'views',
-                filterable: true,
-            },
         ]
 
         let showTable = true
@@ -115,7 +105,7 @@ class Recommendations extends Component {
                         showPageSizeOptions={true}
                         minRows={0}
                         sorted={[{ // the sorting model for the table
-                            id: 'rank',
+                            id: 'rating',
                             desc: true,
                         }]}
                     />

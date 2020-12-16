@@ -78,11 +78,6 @@ class Recommendations extends Component {
 
         const columns = [
             {
-                Header: 'ID',
-                accessor: '_id',
-                filterable: true,
-            },
-            {
                 Header: 'Title',
                 accessor: 'name',
                 filterable: true,
@@ -108,41 +103,6 @@ class Recommendations extends Component {
                 filterable: true,
             },
             {
-                Header: 'Channel ID',
-                accessor: 'channelid',
-                filterable: true,
-            },
-            {
-                Header: 'Likes',
-                accessor: 'likes',
-                filterable: true,
-            },
-            {
-                Header: 'Dislikes',
-                accessor: 'dislikes',
-                filterable: true,
-            },
-            {
-                Header: 'Views',
-                accessor: 'views',
-                filterable: true,
-            },
-            {
-                Header: 'Share Link',
-                accessor: 'sharelink',
-                filterable: true,
-            },
-            {
-                Header: 'Shares',
-                accessor: 'shares',
-                filterable: true,
-            },
-            {
-                Header: 'Video Link',
-                accessor: 'videolink',
-                filterable: true,
-            },
-            {
                 Header: 'Time',
                 accessor: 'time',
                 filterable: true,
@@ -165,6 +125,10 @@ class Recommendations extends Component {
                         defaultPageSize={10}
                         showPageSizeOptions={true}
                         minRows={0}
+                        sorted={[{ // the sorting model for the table
+                            id: 'rating',
+                            desc: true,
+                        }]}
                     />
                 )}
             </Wrapper>
