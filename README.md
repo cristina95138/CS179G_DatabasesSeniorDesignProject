@@ -11,13 +11,12 @@
 
 1. yarn start
 
+### youtube/server 
 
-### youtube/server
+1. npm run dev 
 
-1. npm run dev
+### youtube/client 
 
-### youtube/client
-
-1. npm start
+1. npm start 
 
 Note: If running on Windows, change line 26 in package.json within youtube-app/client to "set PORT=8000 && react-scripts start" before running client
