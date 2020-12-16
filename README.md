@@ -19,3 +19,5 @@
 ### youtube/client
 
 1. npm start
+
+Note: If running on Windows, change line 26 in package.json within youtube-app/client to "set PORT=8000 && react-scripts start" before running client
